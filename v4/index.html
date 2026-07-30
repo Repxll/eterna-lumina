@@ -1,3 +1,5 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eterna Lumina — Studio™ (V4 · vertical cards)</title>
 
 <style>
@@ -90,8 +92,8 @@ body.ready{opacity:1}
 
 /* ---------- layer 1: fullscreen video stages ---------- */
 .hero{z-index:0}
-.pg2{z-index:2}.pg3{z-index:3}.pg4{z-index:4}.pg5{z-index:5}
-.tail{position:relative;z-index:6}
+.pg2{z-index:2}.pg3{z-index:3}.pg4{z-index:4}.pg5{z-index:5}.pg6{z-index:6}
+.tail{position:relative;z-index:7}
 
 .stagewrap{
   position:relative;height:120svh;display:block;text-decoration:none;
@@ -224,19 +226,12 @@ a.stagewrap{cursor:none}
   text-shadow:0 1px 8px rgba(0,0,0,.7);
 }
 
-/* ---------- primalpod (single page, no video) ---------- */
-.pod{
-  position:relative;background:#12100E;
-  min-height:80svh;display:flex;flex-direction:column;justify-content:center;
-  padding:clamp(70px,12vh,130px) var(--pad);gap:22px;
-  border-top:1px solid rgba(255,255,255,.14);
-}
+/* ---------- primalpod (own stage; client: single page, no video —
+   using footage for the dev mockup, easy to swap for a still) ---------- */
 .pod-mark{font-family:var(--disp);font-weight:900;text-transform:uppercase;
-  font-size:clamp(46px,10vw,150px);line-height:.92;letter-spacing:.005em}
+  font-size:clamp(40px,7vw,104px);line-height:.94;letter-spacing:.005em}
 .pod-sub{font-family:var(--disp);font-weight:900;text-transform:uppercase;
-  font-size:clamp(18px,3vw,42px);color:#E2481F;line-height:1;letter-spacing:.01em}
-.pod-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
-.pod-note{font-size:15px;color:var(--dim);max-width:40ch}
+  font-size:clamp(15px,2.1vw,28px);color:#E2481F;line-height:1;letter-spacing:.01em}
 .pod-soon{font-size:14px;color:var(--fg);border:1px solid rgba(255,255,255,.45);padding:11px 22px;white-space:nowrap}
 
 /* ---------- subscribe ---------- */
@@ -273,10 +268,16 @@ a.stagewrap{cursor:none}
 .sec-head{font-family:var(--disp);font-weight:900;font-size:clamp(28px,4.6vw,64px);text-transform:uppercase;line-height:1}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
 .blog-card{
-  display:flex;flex-direction:column;gap:14px;justify-content:space-between;
-  border:1px solid rgba(255,255,255,.22);padding:24px;min-height:220px;
+  display:flex;flex-direction:column;gap:14px;
+  border:1px solid rgba(255,255,255,.22);padding:0 0 24px;overflow:hidden;
   text-decoration:none;transition:background .25s,color .25s,border-color .25s;
 }
+.blog-card .bmedia{display:block;aspect-ratio:16/10;overflow:hidden;background:#141414;margin-bottom:6px}
+.blog-card .bmedia video{width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.85);transition:transform .6s cubic-bezier(.2,.65,.15,1),filter .3s}
+.blog-card:hover .bmedia video{transform:scale(1.05);filter:brightness(1)}
+.blog-card .bd,.blog-card .bt,.blog-card .br{padding:0 24px}
+.blog-card .bt{flex:1}
 .blog-card:hover{background:#fff;color:#0A0A0A;border-color:#fff}
 .blog-card .bd{font-size:12.5px;color:var(--dim);letter-spacing:.02em}
 .blog-card:hover .bd{color:rgba(10,10,10,.6)}
@@ -528,13 +529,18 @@ a.stagewrap{cursor:none}
   </div>
 </div>
 
-<!-- ============ PRIMALPOD · single page, no video ============ -->
-<section class="pod tail" id="primalpod">
-  <h2 class="pod-mark"><span class="ln"><span>PrimalPod</span></span></h2>
-  <span class="pod-sub"><span class="ln" style="--d:.1s"><span>Your inner sanctum</span></span></span>
-  <div class="pod-row">
-    <p class="pod-note fd" style="--d:.2s">A fourth brand in the studio&rsquo;s portfolio — a single page for now, no video.</p>
-    <span class="pod-soon fd" style="--d:.25s">Coming soon</span>
+<!-- ============ PRIMALPOD · own stage, no layer underneath ============ -->
+<section class="stagewrap pg6" id="primalpod">
+  <div class="stage">
+    <div class="stage-media"><video src="./media/h_pod.mp4" autoplay muted loop playsinline></video></div>
+    <div class="stage-card"><video src="./media/h_pod.mp4" autoplay muted loop playsinline></video></div>
+    <div class="stage-scrim"></div>
+    <div class="wl">
+      <h2 class="wt pod-mark">PrimalPod</h2>
+      <span class="pod-sub">Your inner sanctum</span>
+      <p class="wd">The fourth brand in the studio&rsquo;s portfolio — a single page for now.</p>
+    </div>
+    <span class="wy"><span class="pod-soon">Coming soon</span></span>
   </div>
 </section>
 
@@ -552,9 +558,24 @@ a.stagewrap{cursor:none}
 <section class="blog tail" id="blog">
   <h2 class="sec-head"><span class="ln"><span>Blog</span></span></h2>
   <div class="blog-grid">
-    <a class="blog-card fd" href="./blog/" style="--d:.1s"><span class="bd">2026 · POST 001</span><span class="bt">Post title — coming soon</span><span class="br">Read post →</span></a>
-    <a class="blog-card fd" href="./blog/" style="--d:.15s"><span class="bd">2026 · POST 002</span><span class="bt">Post title — coming soon</span><span class="br">Read post →</span></a>
-    <a class="blog-card fd" href="./blog/" style="--d:.2s"><span class="bd">2026 · POST 003</span><span class="bt">Post title — coming soon</span><span class="br">Read post →</span></a>
+    <a class="blog-card fd" href="./blog/" style="--d:.1s">
+      <span class="bmedia"><video src="./media/v_ps.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="bd">Primalsound · July 2026</span>
+      <span class="bt">Shake with the priests: making the Primalsound rhythm</span>
+      <span class="br">Read post →</span>
+    </a>
+    <a class="blog-card fd" href="./blog/" style="--d:.15s">
+      <span class="bmedia"><video src="./media/v_sb.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="bd">Spellbound · June 2026</span>
+      <span class="bt">Beauty beyond the noise — shooting underwater for a week</span>
+      <span class="br">Read post →</span>
+    </a>
+    <a class="blog-card fd" href="./blog/" style="--d:.2s">
+      <span class="bmedia"><video src="./media/v_st.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="bd">Sugartown Sound · May 2026</span>
+      <span class="bt">Relentless drive: one guitar, twelve takes, no click track</span>
+      <span class="br">Read post →</span>
+    </a>
   </div>
   <a class="blog-all fd" href="./blog/" style="--d:.25s">All posts →</a>
 </section>
@@ -705,7 +726,7 @@ a.stagewrap{cursor:none}
   }
 
   // reveal
-  var els = [].slice.call(document.querySelectorAll('.hero, .pod, .subrow, .blog, .contact, .about, .foot, .fd'));
+  var els = [].slice.call(document.querySelectorAll('.hero, .subrow, .blog, .contact, .about, .foot, .fd'));
   function markVisible(){
     els.forEach(function(el){
       if (el.classList.contains('in')) return;
@@ -805,6 +826,14 @@ a.stagewrap{cursor:none}
       setTimeout(function(){ card.remove(); live--; }, 1350);
     });
   }
+
+  // blog card thumbs play on hover
+  document.querySelectorAll('.blog-card').forEach(function(c){
+    var v = c.querySelector('video');
+    if (!v) return;
+    c.addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
+    c.addEventListener('mouseleave', function(){ v.pause(); });
+  });
 
   // giant wordmark always spans the full viewport width
   function fitGiant(){

@@ -1,3 +1,5 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog — Eterna Lumina Studio™</title>
 
 <style>
@@ -70,10 +72,16 @@ button{font-family:inherit;cursor:pointer}
 .count{font-size:13px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
 .card{
-  display:flex;flex-direction:column;gap:16px;justify-content:space-between;
-  border:1px solid rgba(255,255,255,.22);padding:28px;min-height:280px;
+  display:flex;flex-direction:column;gap:16px;
+  border:1px solid rgba(255,255,255,.22);padding:0 0 28px;overflow:hidden;
   text-decoration:none;transition:background .25s,color .25s,border-color .25s;
 }
+.card .cmedia{display:block;aspect-ratio:16/10;overflow:hidden;background:#141414}
+.card .cmedia video{width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.85);transition:transform .6s cubic-bezier(.2,.65,.15,1),filter .3s}
+.card:hover .cmedia video{transform:scale(1.05);filter:brightness(1)}
+.card .meta,.card h2,.card .ex,.card .cta{padding:0 28px}
+.card h2{flex:none}
 .card:hover{background:#fff;color:#0A0A0A;border-color:#fff}
 .card .meta{font-size:12.5px;color:var(--dim);letter-spacing:.04em}
 .card:hover .meta{color:rgba(10,10,10,.6)}
@@ -117,31 +125,49 @@ button{font-family:inherit;cursor:pointer}
 </header>
 
 <main class="wrap">
-  <span class="count fd">3 posts · newest first</span>
+  <span class="count fd">5 posts · newest first</span>
   <div class="grid">
     <a class="card fd" href="#post" style="--d:.05s">
-      <span class="meta">POST 001 · 2026</span>
-      <h2>Post title — coming soon</h2>
-      <p class="ex">A short excerpt of the post will sit here, two or three lines long, giving the reader a reason to open it.</p>
-      <span class="cta">Read post →</span>
-    </a>
-    <a class="card fd" href="#post" style="--d:.1s">
-      <span class="meta">POST 002 · 2026</span>
-      <h2>Post title — coming soon</h2>
-      <p class="ex">A short excerpt of the post will sit here, two or three lines long, giving the reader a reason to open it.</p>
+      <span class="cmedia"><video src="../media/v_ps.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="meta">PRIMALSOUND · JULY 2026</span>
+      <h2>Shake with the priests: making the Primalsound rhythm</h2>
+      <p class="ex">The drums came first — recorded in one room, no grid, no quantising. Everything you hear in the daily live was played by hand, and the picture was cut to follow the breath of it.</p>
       <span class="cta">Read post →</span>
     </a>
     <a class="card fd" href="#post" style="--d:.15s">
-      <span class="meta">POST 003 · 2026</span>
-      <h2>Post title — coming soon</h2>
-      <p class="ex">A short excerpt of the post will sit here, two or three lines long, giving the reader a reason to open it.</p>
+      <span class="cmedia"><video src="../media/v_sb.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="meta">SPELLBOUND · JUNE 2026</span>
+      <h2>Beauty beyond the noise — shooting underwater for a week</h2>
+      <p class="ex">Seven days, one pool and a camera in a housing. What we learned about light under the surface, and why the calmest frames took the most takes.</p>
       <span class="cta">Read post →</span>
     </a>
+    <a class="card fd" href="#post" style="--d:.25s">
+      <span class="cmedia"><video src="../media/v_st.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="meta">SUGARTOWN SOUND · MAY 2026</span>
+      <h2>Relentless drive: one guitar, twelve takes, no click track</h2>
+      <p class="ex">A single amp, a single take philosophy, and the twelve attempts it took to get there. Notes on tracking a guitar that has to carry a whole world.</p>
+      <span class="cta">Read post →</span>
+    </a>
+    <a class="card fd" href="#post" style="--d:.35s">
+      <span class="cmedia"><video src="../media/v_ps.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="meta">THE STUDIO · APRIL 2026</span>
+      <h2>Why every experience is vertical</h2>
+      <p class="ex">Phones are held one way. Instead of fighting that, we shoot for it — and the frame becomes a doorway rather than a window. How that changed our storyboards.</p>
+      <span class="cta">Read post →</span>
+    </a>
+    <a class="card fd" href="#post" style="--d:.45s">
+      <span class="cmedia"><video src="../media/v_st.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="meta">THE STUDIO · MARCH 2026</span>
+      <h2>Building a daily live that is not a livestream</h2>
+      <p class="ex">One video per brand per day, looping on a shared clock, so everyone watching sees the same moment. The reasoning behind the format, and what it asks of the edit.</p>
+      <span class="cta">Read post →</span>
+    </a>
+
   </div>
 
   <div class="empty fd" style="--d:.2s">
     <b>No posts yet.</b>
-    <span>Empty state from the spec — shown when the owner hasn&rsquo;t published anything.</span>
+    <span>Empty state from the spec (PRD §7) — shown when the owner hasn&rsquo;t published anything.</span>
   </div>
 </main>
 
@@ -167,5 +193,11 @@ button{font-family:inherit;cursor:pointer}
     });
   }
   mark(); addEventListener('scroll', mark, {passive:true});
+  document.querySelectorAll('.card').forEach(function(c){
+    var v = c.querySelector('video');
+    if (!v) return;
+    c.addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
+    c.addEventListener('mouseleave', function(){ v.pause(); });
+  });
 })();
 </script>

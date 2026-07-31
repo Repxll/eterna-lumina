@@ -77,9 +77,9 @@ button{font-family:inherit;cursor:pointer}
   text-decoration:none;transition:background .25s,color .25s,border-color .25s;
 }
 .card .cmedia{display:block;aspect-ratio:16/10;overflow:hidden;background:#141414}
-.card .cmedia video{width:100%;height:100%;object-fit:cover;display:block;
+.card .cmedia img{width:100%;height:100%;object-fit:cover;display:block;
   filter:brightness(.85);transition:transform .6s cubic-bezier(.2,.65,.15,1),filter .3s}
-.card:hover .cmedia video{transform:scale(1.05);filter:brightness(1)}
+.card:hover .cmedia img{transform:scale(1.05);filter:brightness(1)}
 .card .meta,.card h2,.card .ex,.card .cta{padding:0 28px}
 .card h2{flex:none}
 .card:hover{background:#fff;color:#0A0A0A;border-color:#fff}
@@ -128,35 +128,35 @@ button{font-family:inherit;cursor:pointer}
   <span class="count fd">5 posts · newest first</span>
   <div class="grid">
     <a class="card fd" href="#post" style="--d:.05s">
-      <span class="cmedia"><video src="../media/v_ps.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="cmedia"><img src="../media/p_vps.jpg" alt=""></span>
       <span class="meta">PRIMALSOUND · JULY 2026</span>
       <h2>Shake with the priests: making the Primalsound rhythm</h2>
       <p class="ex">The drums came first — recorded in one room, no grid, no quantising. Everything you hear in the daily live was played by hand, and the picture was cut to follow the breath of it.</p>
       <span class="cta">Read post →</span>
     </a>
     <a class="card fd" href="#post" style="--d:.15s">
-      <span class="cmedia"><video src="../media/v_sb.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="cmedia"><img src="../media/p_vsb.jpg" alt=""></span>
       <span class="meta">SPELLBOUND · JUNE 2026</span>
       <h2>Beauty beyond the noise — shooting underwater for a week</h2>
       <p class="ex">Seven days, one pool and a camera in a housing. What we learned about light under the surface, and why the calmest frames took the most takes.</p>
       <span class="cta">Read post →</span>
     </a>
     <a class="card fd" href="#post" style="--d:.25s">
-      <span class="cmedia"><video src="../media/v_st.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="cmedia"><img src="../media/p_vst.jpg" alt=""></span>
       <span class="meta">SUGARTOWN SOUND · MAY 2026</span>
       <h2>Relentless drive: one guitar, twelve takes, no click track</h2>
       <p class="ex">A single amp, a single take philosophy, and the twelve attempts it took to get there. Notes on tracking a guitar that has to carry a whole world.</p>
       <span class="cta">Read post →</span>
     </a>
     <a class="card fd" href="#post" style="--d:.35s">
-      <span class="cmedia"><video src="../media/v_ps.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="cmedia"><img src="../media/p_vps.jpg" alt=""></span>
       <span class="meta">THE STUDIO · APRIL 2026</span>
       <h2>Why every experience is vertical</h2>
       <p class="ex">Phones are held one way. Instead of fighting that, we shoot for it — and the frame becomes a doorway rather than a window. How that changed our storyboards.</p>
       <span class="cta">Read post →</span>
     </a>
     <a class="card fd" href="#post" style="--d:.45s">
-      <span class="cmedia"><video src="../media/v_st.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="cmedia"><img src="../media/p_vst.jpg" alt=""></span>
       <span class="meta">THE STUDIO · MARCH 2026</span>
       <h2>Building a daily live that is not a livestream</h2>
       <p class="ex">One video per brand per day, looping on a shared clock, so everyone watching sees the same moment. The reasoning behind the format, and what it asks of the edit.</p>
@@ -192,11 +192,7 @@ button{font-family:inherit;cursor:pointer}
       if (r.top < innerHeight * .95 && r.bottom > 0) el.classList.add('in');
     });
   }
-  mark(); addEventListener('scroll', mark, {passive:true});
-  document.querySelectorAll('.card').forEach(function(c){
-    var v = c.querySelector('video');
-    if (!v) return;
-    c.addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
+  mark(); addEventListener('scroll', mark, {passive:true}); });
     c.addEventListener('mouseleave', function(){ v.pause(); });
   });
 })();

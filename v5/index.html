@@ -1,5 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://player.vimeo.com">
+<link rel="preconnect" href="https://i.vimeocdn.com">
+<link rel="preconnect" href="https://f.vimeocdn.com" crossorigin>
 <title>Eterna Lumina — Studio™ (V5 · client mockup layout)</title>
 
 <style>
@@ -112,9 +115,11 @@ a.stagewrap{cursor:none}
 }
 
 /* Vimeo background embeds — the client's real brand films (layer 1) */
-.vim{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.vimv{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.vim{position:absolute;inset:0;overflow:hidden;pointer-events:none;background-size:cover;background-position:center}
+.vimv{position:absolute;inset:0;overflow:hidden;pointer-events:none;background-size:cover;background-position:center}
 .vimv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vimv.cover iframe{inset:auto;top:50%;left:50%;transform:translate(-50%,-50%);
+  height:100%;width:auto;aspect-ratio:16/9;min-width:100%}
 .vim iframe{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:100vw;height:56.25vw;min-height:100vh;min-width:177.78vh;border:0;
@@ -342,9 +347,11 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
   text-decoration:none;transition:background .25s,color .25s,border-color .25s;
 }
 .blog-card .bmedia{display:block;aspect-ratio:16/10;overflow:hidden;background:#141414;margin-bottom:6px}
-.blog-card .bmedia video{width:100%;height:100%;object-fit:cover;display:block;
+.blog-card .bmedia{position:relative;background:#141414}
+.blog-card .bmedia img{width:100%;height:100%;object-fit:cover;display:block;
   filter:brightness(.85);transition:transform .6s cubic-bezier(.2,.65,.15,1),filter .3s}
-.blog-card:hover .bmedia video{transform:scale(1.05);filter:brightness(1)}
+.blog-card:hover .bmedia img{transform:scale(1.05);filter:brightness(1)}
+
 .blog-card .bd,.blog-card .bt,.blog-card .br{padding:0 24px}
 .blog-card .bt{flex:1}
 .blog-card:hover{background:#fff;color:#0A0A0A;border-color:#fff}
@@ -423,7 +430,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
   transition:transform .55s cubic-bezier(.2,.65,.15,1),opacity .4s ease,filter .55s ease;
   will-change:transform,opacity,filter;overflow:hidden;
 }
-.trail-card video{width:100%;height:100%;object-fit:cover;display:block}
+.trail-card img{width:100%;height:100%;object-fit:cover;display:block}
 .trail-card.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .trail-card.hide{opacity:0;transform:translate(-50%,-50%) scale(.85);filter:blur(10px)}
 .foot-giant{
@@ -487,7 +494,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
 <!-- ============ PAGE 1 · ETERNA LUMINA (no layer underneath) ============ -->
 <header class="stagewrap hero" id="top">
   <div class="stage">
-    <div class="stage-media"><div class="vim"><iframe src="https://player.vimeo.com/video/1214449522?h=1983e1a690&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Eterna Lumina"></iframe></div></div>
+    <div class="stage-media"><div class="vim" style="background-image:url(./media/p_hero.jpg)"><iframe src="https://player.vimeo.com/video/1214449522?h=1983e1a690&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Eterna Lumina"></iframe></div></div>
     <div class="stage-scrim"></div>
     <span class="hero-star" aria-hidden="true">✳</span>
     <div class="hero-in">
@@ -512,7 +519,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
 <!-- ============ PAGE 2 · PRIMALSOUND ============ -->
 <a class="stagewrap pg2" id="primalsound" href="#primalsound" data-l2="l2-ps" data-chip="Open">
   <div class="stage">
-    <div class="stage-media"><div class="vim"><iframe src="https://player.vimeo.com/video/1214288481?h=cad3d77161&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Primalsound" loading="lazy"></iframe></div></div>
+    <div class="stage-media"><div class="vim" style="background-image:url(./media/p_hps.jpg)"><iframe src="https://player.vimeo.com/video/1214288481?h=cad3d77161&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Primalsound" loading="lazy"></iframe></div></div>
     <div class="stage-scrim"></div>
     <span class="wcount">01 / 05</span>
     <span class="wview">+ View</span>
@@ -526,7 +533,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
 <!-- ============ PAGE 3 · SPELLBOUND ============ -->
 <a class="stagewrap pg3" id="spellbound" href="#spellbound" data-l2="l2-sb" data-chip="Open">
   <div class="stage">
-    <div class="stage-media"><div class="vim"><iframe src="https://player.vimeo.com/video/1214288480?h=560fb4757b&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Spellbound" loading="lazy"></iframe></div></div>
+    <div class="stage-media"><div class="vim" style="background-image:url(./media/p_hsb.jpg)"><iframe src="https://player.vimeo.com/video/1214288480?h=560fb4757b&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Spellbound" loading="lazy"></iframe></div></div>
     <div class="stage-scrim"></div>
     <span class="wcount">02 / 05</span>
     <span class="wview">+ View</span>
@@ -540,7 +547,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
 <!-- ============ PAGE 4 · SUGARTOWN SOUND ============ -->
 <a class="stagewrap pg4" id="sugartown" href="#sugartown" data-l2="l2-st" data-chip="Open">
   <div class="stage">
-    <div class="stage-media"><div class="vim"><iframe src="https://player.vimeo.com/video/1214288482?h=fe81401fa4&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Sugartown Sound" loading="lazy"></iframe></div></div>
+    <div class="stage-media"><div class="vim" style="background-image:url(./media/p_hst.jpg)"><iframe src="https://player.vimeo.com/video/1214288482?h=fe81401fa4&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Sugartown Sound" loading="lazy"></iframe></div></div>
     <div class="stage-scrim"></div>
     <span class="wcount">03 / 05</span>
     <span class="wview">+ View</span>
@@ -554,7 +561,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
 <!-- ============ PAGE 5 · THE COLLECTION ============ -->
 <a class="stagewrap pg5" id="collection" href="#collection" data-l2="l2-col" data-chip="Open archive">
   <div class="stage">
-    <div class="stage-media"><div class="vim"><iframe src="https://player.vimeo.com/video/1214451299?h=b5b956ef49&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="The Collection"></iframe></div></div>
+    <div class="stage-media"><div class="vim" style="background-image:url(./media/p_col.jpg)"><iframe src="https://player.vimeo.com/video/1214451299?h=b5b956ef49&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="The Collection"></iframe></div></div>
     <div class="stage-scrim"></div>
     <span class="wcount">04 / 05</span>
     <span class="wview">+ View</span>
@@ -568,7 +575,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
 <!-- ============ LAYER 2 · BRAND PAGES ============ -->
 <div class="l2" id="l2-ps" aria-hidden="true">
   <div class="l2-marquee"><span>Primalsound · Primalsound · Primalsound ·&nbsp;</span><span>Primalsound · Primalsound · Primalsound ·&nbsp;</span></div>
-  <div class="l2-frame"><div class="vimv"><iframe data-src="https://player.vimeo.com/video/1214337268?h=b2c1aedb95&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Primalsound"></iframe></div></div>
+  <div class="l2-frame"><div class="vimv" style="background-image:url(./media/p_vps.jpg)"><iframe data-src="https://player.vimeo.com/video/1214337268?h=b2c1aedb95&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Primalsound"></iframe></div></div>
   <div class="l2-side">
     <span class="t">Primalsound</span>
     <div class="fld"><b>Brand</b><span class="d">Primalsound</span></div>
@@ -586,7 +593,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
 
 <div class="l2" id="l2-sb" aria-hidden="true">
   <div class="l2-marquee"><span>Spellbound · Spellbound · Spellbound ·&nbsp;</span><span>Spellbound · Spellbound · Spellbound ·&nbsp;</span></div>
-  <div class="l2-frame"><div class="vimv"><iframe data-src="https://player.vimeo.com/video/1214337269?h=efc795472b&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Spellbound"></iframe></div></div>
+  <div class="l2-frame"><div class="vimv" style="background-image:url(./media/p_vsb.jpg)"><iframe data-src="https://player.vimeo.com/video/1214337269?h=efc795472b&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Spellbound"></iframe></div></div>
   <div class="l2-side">
     <span class="t">Spellbound</span>
     <div class="fld"><b>Brand</b><span class="d">Spellbound</span></div>
@@ -604,7 +611,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
 
 <div class="l2" id="l2-st" aria-hidden="true">
   <div class="l2-marquee"><span>Sugartown Sound · Sugartown Sound ·&nbsp;</span><span>Sugartown Sound · Sugartown Sound ·&nbsp;</span></div>
-  <div class="l2-frame"><div class="vimv"><iframe data-src="https://player.vimeo.com/video/1214337267?h=a00bc858ae&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Sugartown Sound"></iframe></div></div>
+  <div class="l2-frame"><div class="vimv" style="background-image:url(./media/p_vst.jpg)"><iframe data-src="https://player.vimeo.com/video/1214337267?h=a00bc858ae&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Sugartown Sound"></iframe></div></div>
   <div class="l2-side">
     <span class="t">Sugartown Sound</span>
     <div class="fld"><b>Brand</b><span class="d">Sugartown Sound</span></div>
@@ -626,12 +633,12 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
     <h2 class="arch-head">The Collection</h2>
     <p class="arch-sub">Full-length experiences from every brand in the portfolio. Open archive for development — locking and subscription states come later.</p>
     <div class="arch-grid">
-      <figure class="arch-card"><video src="./media/v_ps.mp4" muted loop playsinline preload="metadata"></video><figcaption>Primalsound — 001</figcaption></figure>
-      <figure class="arch-card"><video src="./media/v_sb.mp4" muted loop playsinline preload="metadata"></video><figcaption>Spellbound — 001</figcaption></figure>
-      <figure class="arch-card"><video src="./media/v_st.mp4" muted loop playsinline preload="metadata"></video><figcaption>Sugartown Sound — 001</figcaption></figure>
-      <figure class="arch-card"><video src="./media/v_sb.mp4" muted loop playsinline preload="metadata"></video><figcaption>Spellbound — 002</figcaption></figure>
-      <figure class="arch-card"><video src="./media/v_st.mp4" muted loop playsinline preload="metadata"></video><figcaption>Sugartown Sound — 002</figcaption></figure>
-      <figure class="arch-card"><video src="./media/v_ps.mp4" muted loop playsinline preload="metadata"></video><figcaption>Primalsound — 002</figcaption></figure>
+      <figure class="arch-card"><div class="vimv" style="background-image:url(./media/p_vps.jpg)"><iframe data-src="https://player.vimeo.com/video/1214337268?h=b2c1aedb95&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Primalsound" loading="lazy"></iframe></div><figcaption>Primalsound — 001</figcaption></figure>
+      <figure class="arch-card"><div class="vimv" style="background-image:url(./media/p_vsb.jpg)"><iframe data-src="https://player.vimeo.com/video/1214337269?h=efc795472b&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Spellbound" loading="lazy"></iframe></div><figcaption>Spellbound — 001</figcaption></figure>
+      <figure class="arch-card"><div class="vimv" style="background-image:url(./media/p_vst.jpg)"><iframe data-src="https://player.vimeo.com/video/1214337267?h=a00bc858ae&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Sugartown Sound" loading="lazy"></iframe></div><figcaption>Sugartown Sound — 001</figcaption></figure>
+      <figure class="arch-card"><div class="vimv" style="background-image:url(./media/p_vsb.jpg)"><iframe data-src="https://player.vimeo.com/video/1214337269?h=efc795472b&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Spellbound" loading="lazy"></iframe></div><figcaption>Spellbound — 002</figcaption></figure>
+      <figure class="arch-card"><div class="vimv" style="background-image:url(./media/p_vst.jpg)"><iframe data-src="https://player.vimeo.com/video/1214337267?h=a00bc858ae&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Sugartown Sound" loading="lazy"></iframe></div><figcaption>Sugartown Sound — 002</figcaption></figure>
+      <figure class="arch-card"><div class="vimv" style="background-image:url(./media/p_vps.jpg)"><iframe data-src="https://player.vimeo.com/video/1214337268?h=b2c1aedb95&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen" title="Primalsound" loading="lazy"></iframe></div><figcaption>Primalsound — 002</figcaption></figure>
     </div>
   </div>
 </div>
@@ -668,19 +675,19 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
   <h2 class="sec-head"><span class="ln"><span>Blog</span></span></h2>
   <div class="blog-grid">
     <a class="blog-card fd" href="./blog/" style="--d:.1s">
-      <span class="bmedia"><video src="./media/v_ps.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="bmedia"><img src="./media/p_vps.jpg" alt=""></span>
       <span class="bd">Primalsound · July 2026</span>
       <span class="bt">Shake with the priests: making the Primalsound rhythm</span>
       <span class="br">Read post →</span>
     </a>
     <a class="blog-card fd" href="./blog/" style="--d:.15s">
-      <span class="bmedia"><video src="./media/v_sb.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="bmedia"><img src="./media/p_vsb.jpg" alt=""></span>
       <span class="bd">Spellbound · June 2026</span>
       <span class="bt">Beauty beyond the noise — shooting underwater for a week</span>
       <span class="br">Read post →</span>
     </a>
     <a class="blog-card fd" href="./blog/" style="--d:.2s">
-      <span class="bmedia"><video src="./media/v_st.mp4" muted loop playsinline preload="metadata"></video></span>
+      <span class="bmedia"><img src="./media/p_vst.jpg" alt=""></span>
       <span class="bd">Sugartown Sound · May 2026</span>
       <span class="bt">Relentless drive: one guitar, twelve takes, no click track</span>
       <span class="br">Read post →</span>
@@ -737,6 +744,12 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
         <a href="#refund">Refund Policy</a>
       </div>
     </div>
+  </div>
+  <div class="trail-src" hidden>
+    <span data-trail="./media/p_vps.jpg"></span>
+    <span data-trail="./media/p_vsb.jpg"></span>
+    <span data-trail="./media/p_vst.jpg"></span>
+    <span data-trail="./media/p_hero.jpg"></span>
   </div>
   <div class="foot-play" id="footPlay">
     <div class="foot-giant" id="footGiant"><span>Eterna</span><span>Lumina</span></div>
@@ -918,7 +931,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
   // footer video trail — straight cards, grow in, shrink out with blur
   if (matchMedia('(pointer:fine)').matches && !reduced) {
     var play = document.getElementById('footPlay');
-    var pool = ['./media/v_ps.mp4','./media/v_sb.mp4','./media/v_st.mp4'];
+    var pool = [].slice.call(document.querySelectorAll('[data-trail]')).map(function(n){ return n.getAttribute('data-trail'); });
     var pi = 0, lx = -1e4, ly = -1e4, live = 0;
     play.addEventListener('mousemove', function(e){
       var fr = play.getBoundingClientRect();
@@ -928,12 +941,10 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
       var card = document.createElement('div');
       card.className = 'trail-card';
       card.style.left = x + 'px'; card.style.top = y + 'px';
-      var v = document.createElement('video');
-      v.src = pool[pi++ % pool.length];
-      v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = true;
-      card.appendChild(v);
+      var im = document.createElement('img');
+      im.src = pool[pi++ % pool.length]; im.alt = '';
+      card.appendChild(im);
       play.appendChild(card);
-      v.play().catch(function(){});
       requestAnimationFrame(function(){ requestAnimationFrame(function(){ card.classList.add('show'); }); });
       setTimeout(function(){ card.classList.add('hide'); }, 650);
       setTimeout(function(){ card.remove(); live--; }, 1350);
@@ -941,14 +952,7 @@ a.stagewrap:hover .wview{background:#fff;color:#0A0A0A;border-color:#fff}
   }
 
   // blog card thumbs play on hover
-  document.querySelectorAll('.blog-card').forEach(function(c){
-    var v = c.querySelector('video');
-    if (!v) return;
-    v.addEventListener('loadedmetadata', function(){ try { v.currentTime = 0.1; } catch(e){} });
-    if (v.readyState >= 1) { try { v.currentTime = 0.1; } catch(e){} }
-    c.addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
-    c.addEventListener('mouseleave', function(){ v.pause(); });
-  });
+
 
   // giant wordmark always spans the full viewport width
   function fitGiant(){

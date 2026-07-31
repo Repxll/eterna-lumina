@@ -182,8 +182,8 @@ button{font-family:inherit;cursor:pointer}
 
 <script>
 (function(){
-  addEventListener('load', function(){ document.body.classList.add('ready'); });
-  setTimeout(function(){ document.body.classList.add('ready'); }, 700);
+  // make the page visible first: a later error must never leave it blank
+  document.body.classList.add('ready');
   var els = [].slice.call(document.querySelectorAll('.head, .wrap, .fd'));
   function mark(){
     els.forEach(function(el){
@@ -192,8 +192,7 @@ button{font-family:inherit;cursor:pointer}
       if (r.top < innerHeight * .95 && r.bottom > 0) el.classList.add('in');
     });
   }
-  mark(); addEventListener('scroll', mark, {passive:true}); });
-    c.addEventListener('mouseleave', function(){ v.pause(); });
-  });
+  mark();
+  addEventListener('scroll', mark, {passive:true});
 })();
 </script>
